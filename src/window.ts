@@ -350,10 +350,11 @@ export async function createTransparentWindow(): Promise<void> {
         title: "ArmCord",
         darkTheme: true,
         icon: iconPath,
-        frame: true,
+        frame: false,
         backgroundColor: "#00000000",
         show: false,
         autoHideMenuBar: true,
+        transparent: true,
         webPreferences: {
             sandbox: false,
             webviewTag: true,
