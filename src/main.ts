@@ -76,9 +76,9 @@ if (!app.requestSingleInstanceLock() && getConfigSync("multiInstance") == (false
     // HardwareMediaKeyHandling,MediaSessionService: Prevent Discord from registering as a media service.
     app.commandLine.appendSwitch(
         "disable-features",
-        "WinRetrieveSuggestionsOnlyOnDemand,HardwareMediaKeyHandling,MediaSessionService",
-        "enable-transparent-visuals"
+        "WinRetrieveSuggestionsOnlyOnDemand,HardwareMediaKeyHandling,MediaSessionService"
     );
+    app.commandLine.appendSwitch("enable-transparent-visuals");
     checkForDataFolder();
     checkIfConfigExists();
     injectElectronFlags();
