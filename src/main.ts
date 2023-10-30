@@ -81,6 +81,8 @@ if (!app.requestSingleInstanceLock() && getConfigSync("multiInstance") == (false
     checkForDataFolder();
     checkIfConfigExists();
     injectElectronFlags();
+    app.commandLine.appendSwitch('enable-transparent-visuals');
+
     app.whenReady().then(async () => {
         if ((await getConfig("customIcon")) !== undefined ?? null) {
             iconPath = await getConfig("customIcon");
@@ -112,7 +114,8 @@ if (!app.requestSingleInstanceLock() && getConfigSync("multiInstance") == (false
                     break;
             }
         }
-        await init();
+        await setTimeout(init, 400);
+        
         await installModLoader();
         session.fromPartition("some-partition").setPermissionRequestHandler((_webContents, permission, callback) => {
             if (permission === "notifications") {
